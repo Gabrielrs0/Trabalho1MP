@@ -25,4 +25,19 @@ TEST_CASE( "Testa linhas do Jogo da Velha", "[linhas]" ) {
     REQUIRE(VerificaVelha(teste3) == 2);
 }
 
+TEST_CASE("Testa colunas do Jogo da Velha", "[colunas]") {
+    int teste1[3][3]= {{1, 0, 2},
+                       {1, 2, 0},
+                       {1, 0, 0}};
+    REQUIRE(VerificaVelha(teste1) == 1);
+    int teste2[3][3]= {{0, 2, 0},
+                       {1, 2, 0},
+                       {1, 2, 0}};
+    REQUIRE(VerificaVelha(teste2) == 2);
+    int teste3[3][3]= {{2, 2, 1},
+                       {2, 2, 1},
+                       {1, 1, 1}};
+    REQUIRE(VerificaVelha(teste3) == 1);
+}
+
 
