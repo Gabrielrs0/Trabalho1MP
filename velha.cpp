@@ -35,6 +35,16 @@ int VerificaVelha( int velha[3][3] )
             }
 
     }
+    // verificando diagonal principal
+    if (velha[0][0] == velha[1][1] && velha[1][1] ==velha[2][2]) {
+
+        if (velha[0][0] == 1 )
+            return 1; // X vencedor
+        else if (velha[0][0] == 2)
+            return 2; // O vencedor
+    }
+
+
 	return 0; /*!< retorna zero para teste */
 }
 
