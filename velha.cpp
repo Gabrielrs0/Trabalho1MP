@@ -15,9 +15,9 @@
 
 int VerificaVelha( int velha[3][3] )
 {
-    // verificando linhas e colunas
+    // Verificando linhas e colunas
     for (int i=0; i < 3; i++) {
-        // verificar linhas
+        // Verificar linhas
         if (velha[i][0] == velha[i][1] && velha[i][1] == velha[i][2]) {
 
             if (velha[i][0] == 1)
@@ -25,7 +25,7 @@ int VerificaVelha( int velha[3][3] )
             else if (velha[i][0] == 2)
                 return 2; // O vencedor
             }
-            // verificar colunas
+            // Verificar colunas
         if (velha[0][i] == velha[1][i] && velha[1][i] == velha[2][i]) {
 
             if (velha[0][i] == 1)
@@ -35,7 +35,7 @@ int VerificaVelha( int velha[3][3] )
             }
 
     }
-    // verificando diagonal principal
+    // Verificando diagonal principal
     if (velha[0][0] == velha[1][1] && velha[1][1] ==velha[2][2]) {
 
         if (velha[0][0] == 1 )
@@ -43,7 +43,7 @@ int VerificaVelha( int velha[3][3] )
         else if (velha[0][0] == 2)
             return 2; // O vencedor
     }
-    // verificando diagonal secundaria
+    // Verificando diagonal secundaria
     if (velha[0][2] == velha[1][1] && velha[1][1] == velha[2][0]) {
 
         if (velha[0][2] == 1 )
@@ -51,9 +51,23 @@ int VerificaVelha( int velha[3][3] )
         else if (velha[0][2] == 2)
             return 2; // O vencedor
     }
+    // Verificar empate
+    bool todasPreenchidas = true;
+    for (int i = 0; i < 3; i++) {
+        for (int j = 0; j < 3; j++) {
+            if (velha[i][j] == 0) {
+                todasPreenchidas = false;
+                break;
+            }
+        }
+    }
+
+    if (todasPreenchidas)
+        return 0; // empate
 
 
-	return 0; /*!< retorna zero para teste */
+
+	return -1;   //jogo indefinido
 }
 
 
