@@ -15,6 +15,23 @@
 
 int VerificaVelha( int velha[3][3] )
 {
+    // Verificando jogo impossivel
+    int numX, numO;
+    numX = 0;
+    numO =  0;
+
+    for (int i =0; i < 3; i++) {
+        for (int j =0; j < 3; j++) {
+            if (velha[i][j] == 1)
+                numX += 1;
+            else if (velha[i][j] == 2)
+                numO += 1;
+        }
+    }
+
+    if (numX - numO >= 2 || numO - numX >= 2)
+        return -2; //jogo impossivel
+
     // Verificando linhas e colunas
     for (int i=0; i < 3; i++) {
         // Verificar linhas
@@ -62,12 +79,11 @@ int VerificaVelha( int velha[3][3] )
         }
     }
 
-    if (todasPreenchidas)
+    if (todasPreenchidas){
         return 0; // empate
+        }
 
-
-
-	return -1;   //jogo indefinido
+    return -1;   //jogo indefinido
 }
 
 
